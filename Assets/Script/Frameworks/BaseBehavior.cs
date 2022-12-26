@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Corby.Frameworks.Attributes;
@@ -20,6 +21,14 @@ namespace Corby.Frameworks
         private void Awake()
         {
             Bind();
+        }
+        
+        protected void Join(ref Action action, Action newAction)
+        {
+            action += () =>
+            {
+                newAction?.Invoke();
+            };
         }
     }
 }

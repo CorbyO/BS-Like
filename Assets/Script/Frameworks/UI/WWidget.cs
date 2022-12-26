@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Corby.Frameworks.Attributes;
+using UnityEngine;
 
 namespace Corby.Frameworks.UI
 {
@@ -7,6 +9,10 @@ namespace Corby.Frameworks.UI
     {
         private WWidget _parent;
         private List<WWidget> _children;
+        
+        [Bind]
+        private RectTransform _rectTransform;
+        protected RectTransform RectTransform => _rectTransform;
 
         public bool IsInitialized { get; private set; }
 
