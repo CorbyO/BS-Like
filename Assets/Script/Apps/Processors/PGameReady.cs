@@ -9,14 +9,8 @@ namespace Corby.Apps.Processors
         {
         }
 
-        protected override void Load()
+        protected override void OnInstancing()
         {
-            throw new System.NotImplementedException();
-        }
-
-        protected override void OnLoad()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

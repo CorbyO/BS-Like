@@ -37,6 +37,13 @@
       "dependencies": {},
       "hash": "73d86259ce31ce7f4dfe1d028ea1c3edf96c23e4"
     },
+    "com.dbrizov.naughtyattributes": {
+      "version": "https://github.com/dbrizov/NaughtyAttributes.git?path=Assets/NaughtyAttributes/#master",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "a97aa9b3b416e4c9122ea1be1a1b93b1169b0cd3"
+    },
     "com.github.superunitybuild.buildtool": {
       "version": "https://github.com/superunitybuild/buildtool.git#master",
       "depth": 0,

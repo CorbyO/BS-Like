@@ -4,6 +4,5 @@ namespace Corby.Apps.Actor
 {
     public class ACharacter : AActor
     {
-        
     }
 }

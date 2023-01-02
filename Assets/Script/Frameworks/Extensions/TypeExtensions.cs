@@ -28,7 +28,7 @@ namespace Corby.Frameworks.Extensions
             }
         }
         
-        public static IEnumerable<(MemberInfo member, T)> IterateAttributes<T>(this Type owner) where T : Attribute
+        public static IEnumerable<(MemberInfo member, T attribute)> IterateAttributes<T>(this Type owner) where T : Attribute
         {
             for(var type = owner; type != null; type = type.BaseType)
             {

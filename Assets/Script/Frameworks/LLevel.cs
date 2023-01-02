@@ -16,15 +16,12 @@ namespace Corby.Frameworks
         private static List<PProcessor> _immutable;
         private static GameObject _container;
 
-        private Camera _mainCam;
-        private Camera _uiCam;
-        
-        protected override void OnBindBefore()
+        protected override void OnLoadedScript()
         {
             _mutable = new List<PProcessor>();
             
             _instance = this;
-            if (_container != null)
+            if (_container == null)
             {
                 _immutable = new List<PProcessor>();
                 _container = new GameObject("ImmutableContainer");
@@ -32,25 +29,13 @@ namespace Corby.Frameworks
             }
             
             DefineScreenAttribute.GetScreen(this);
-
-            var temp = FindObjectsOfType<Camera>();
-            if(temp.Length > 2) Debug.LogWarning("[LLevel] More than 2 cameras found.");
-            foreach (var cam in temp)
-            {
-                if (cam.CompareTag("MainCamera"))
-                {
-                    _mainCam = cam;
-                }
-                else
-                {
-                    _uiCam = cam;
-                }
-            }
             
+            Ref.Init();
+
             AddProcessors();
         }
 
-        protected override void OnBindAfter()
+        protected override void OnBound()
         {
         }
 

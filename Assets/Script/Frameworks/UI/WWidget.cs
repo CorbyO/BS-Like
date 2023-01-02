@@ -16,13 +16,13 @@ namespace Corby.Frameworks.UI
 
         public bool IsInitialized { get; private set; }
 
-        protected override void OnBindAfter()
+        protected override void OnBound()
         {
             LoadResource();
             InitializeValues();
         }
 
-        protected override void OnBindBefore()
+        protected override void OnLoadedScript()
         {
             SetEvents();
         }

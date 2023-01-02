@@ -1,11 +1,14 @@
 ﻿using Corby.Apps.Actor;
 using Corby.Frameworks;
+using Corby.Frameworks.Attributes;
+using UnityEngine;
 
 namespace Corby.Apps.Processors
 {
     public class PPlayerController : PProcessor
     {
-        private ACharacter _character;
+        [Instancing("Player")]
+        private APlayer _player;
 
         public override bool IsDestroyWithScene => true;
         public override void OnLevelChange()
@@ -13,14 +16,13 @@ namespace Corby.Apps.Processors
             
         }
 
-        protected override void Load()
+        protected override void OnInstancing()
         {
-            throw new System.NotImplementedException();
         }
-
-        protected override void OnLoad()
+        
+        public void Input(Vector2 velocity)
         {
-            throw new System.NotImplementedException();
+            _player.Move(velocity);
         }
     }
 }

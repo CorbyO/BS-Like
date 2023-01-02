@@ -179,8 +179,14 @@ namespace Corby.Frameworks.Attributes
             return temp.AsReadOnly();
         }
 
-        private static UnityEngine.Component AttachComponent(Transform transform, Type type, bool canAdd)
+        private static object AttachComponent(Transform transform, Type type, bool canAdd)
         {
+            if (type.IsSubclassOf(typeof(IList)))
+            {
+                var coms = transform.GetComponents(type.GetGenericArguments()[0]);
+                if (coms is null or { Length: 0 }) Debug.Log($"[BindAttribute] \"{transform.name}\" add \"{type}\"");
+                return coms;
+            }
             var com = transform.GetComponent(type);
             if(com == null)
             {
@@ -192,7 +198,7 @@ namespace Corby.Frameworks.Attributes
             return com;
         }
 
-        private static UnityEngine.Component AttachComponent(Transform transform, string path, Type type, bool canAdd)
+        private static object AttachComponent(Transform transform, string path, Type type, bool canAdd)
         {
             var found = transform?.Find(path);
             if(found == null) return null;

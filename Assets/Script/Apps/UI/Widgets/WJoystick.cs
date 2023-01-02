@@ -3,51 +3,62 @@ using Corby.Frameworks;
 using Corby.Frameworks.Attributes;
 using Corby.Frameworks.UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Corby.UI.Widgets
 {
-    public class WJoystick : WWidget
+    public class WJoystick : WWidget, IPointerDownHandler, IPointerUpHandler, IPointerMoveHandler
     {
-        [Bind("Controller")]
-        private Image _controlledImage;
-
-        private Vector2 _initPos;
+        [Bind("Background")]
+        private Image _background;
+        [Bind("Background/Controller")]
+        private Image _controlled;
         private Vector2 _startPos;
-        private bool _isTouching;
+        
+        private bool _isPressed;
+        private Vector2 _velocity;
 
         public event Action<Vector2> OnControlled;
 
         protected override void InitializeValues()
         {
             base.InitializeValues();
-            var worldPosition = RectTransform.position;
-            _initPos = Ref.MainCamera.WorldToScreenPoint(worldPosition);
-        }
 
+            _background.gameObject.SetActive(false);
+        }
+        
         private void Update()
         {
-            #if UNITY_EDITOR
-            if (Input.GetMouseButton(0))
+            if (_isPressed)
             {
-                Vector2 mousePos = Input.mousePosition;
-                if (_isTouching == false) // 누르기 시작
-                {
-                    _startPos = mousePos;
-                    RectTransform.position = _startPos;
-                    _isTouching = true;
-                }
-                else
-                {
-                    OnControlled?.Invoke((_startPos - mousePos).normalized);
-                }
+                OnControlled?.Invoke(_velocity);
             }
-            else
-            {
-                RectTransform.position = _initPos;
-                _isTouching = false;
-            }
-            #endif
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _background.gameObject.SetActive(true);
+            _startPos = eventData.pressPosition;
+            _background.rectTransform.anchoredPosition = _startPos;
+            _controlled.rectTransform.anchoredPosition = Vector2.zero;
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _background.gameObject.SetActive(false);
+            _isPressed = false;
+        }
+
+        public void OnPointerMove(PointerEventData eventData)
+        {
+            var delta = eventData.position - _startPos;
+            var length = delta.magnitude;
+                    
+            //  0~300 => 0~1
+            _velocity = delta.normalized * Mathf.Clamp01(length / 300f);
+            _controlled.rectTransform.anchoredPosition = _velocity * 100f;
+            _isPressed = true;
         }
     }
 }

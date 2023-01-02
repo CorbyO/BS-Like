@@ -1,12 +1,22 @@
-﻿namespace Corby.Frameworks
+﻿using UnityEngine;
+
+namespace Corby.Frameworks
 {
     public class AActor : BaseBehavior
     {
-        protected override void OnBindBefore()
+        private Transform _tempTransform;
+        protected Vector2 Position
         {
+            get => _tempTransform.position; 
+            set => _tempTransform.position = value;
         }
 
-        protected override void OnBindAfter()
+        protected override void OnLoadedScript()
+        {
+            _tempTransform = transform;
+        }
+
+        protected override void OnBound()
         {
         }
     }

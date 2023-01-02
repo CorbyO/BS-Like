@@ -1,4 +1,5 @@
 ﻿using System;
+using Corby.Frameworks.Attributes;
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 
@@ -8,41 +9,21 @@ namespace Corby.Frameworks
     {
         public abstract bool IsDestroyWithScene { get; }
         public abstract void OnLevelChange();
-        protected override void OnBindBefore()
+        protected override void OnLoadedScript()
         {
         }
 
-        protected override void OnBindAfter()
+        protected override void OnBound()
         {
+            Instancing().Forget();
         }
         
-        protected abstract void Load();
-        protected abstract void OnLoad();
-        
-        // TODO: 오브젝트 생성을 Attribute 화 시키자.
-        /*
-        private async UniTask TaskingLoad<T>(WidgetBox<T> box)
-            where T : AActor
+        private async UniTask Instancing()
         {
-            var path = $"Assets/Prefabs/Widgets/{nameof(T)}";
-            var newWidget = await Addressables.LoadAssetAsync<T>(path);
-
-            _widgetList.Add(instanced);
-            box.Instance = instanced;
-            
-            if (++_loadCompletedCount == _loadCount)
-            {
-                OnLoad();
-            }
+            await InstancingAttribute.Do(this, "Actors", false);
+            OnInstancing();
         }
-
-        protected void ReserveLoad<T>(WidgetBox<T> box)
-            where T : WWidget
-        {
-            _loadCount++;
-            TaskingLoad<T>(box).Forget();
-        }
-        */
+        protected abstract void OnInstancing();
 
         public void Dispose()
         {

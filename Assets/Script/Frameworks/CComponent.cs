@@ -2,11 +2,11 @@
 {
     public class CComponent : BaseBehavior
     {
-        protected override void OnBindBefore()
+        protected override void OnLoadedScript()
         {
         }
 
-        protected override void OnBindAfter()
+        protected override void OnBound()
         {
         }
     }

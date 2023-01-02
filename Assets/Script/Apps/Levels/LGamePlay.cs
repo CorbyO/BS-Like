@@ -18,6 +18,11 @@ namespace Corby.Apps.Level
         {
             AddProcessor(out _gameReady);
             AddProcessor(out _playerController);
+
+            _screen.Handle = new()
+            {
+                OnInputDirection = _playerController.Input
+            };
         }
     }
 }

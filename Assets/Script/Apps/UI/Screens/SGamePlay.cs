@@ -1,4 +1,5 @@
 ﻿using Corby.Frameworks;
+using Corby.Frameworks.Attributes;
 using Corby.Frameworks.UI;
 using Corby.UI.Widgets;
 using Cysharp.Threading.Tasks;
@@ -12,18 +13,13 @@ namespace Corby.UI.Screens
     }
     public class SGamePlay : SScreen, IHandleable<HdSGamePlay>
     {
-        private WidgetBox<WJoystick> _joystick;
-        public bool IsInitialized { get; private set; }
+        [Instancing("Joystick")]
+        private WJoystick _joystick;
         public HdSGamePlay Handle { get; set; }
 
-        protected override void Load()
+        protected override void OnInstancing()
         {
-            ReserveLoad(_joystick);
-        }
-
-        protected override void OnLoad()
-        {
-            _joystick.Instance.OnControlled += v => Handle?.OnInputDirection?.Invoke(v);
+            _joystick.OnControlled += vec => Handle.OnInputDirection?.Invoke(vec);
         }
     }
 }

@@ -10,9 +10,9 @@ namespace Corby.Frameworks.Attributes
     {
         public static void GetScreen(LLevel owner)
         {
-            foreach (var pair in owner.GetType().IterateAttributes<DefineScreenAttribute>())
+            foreach (var tuple in owner.GetType().IterateAttributes<DefineScreenAttribute>())
             {
-                if (pair.member is FieldInfo fieldInfo)
+                if (tuple.member is FieldInfo fieldInfo)
                 {
                     var screenType = fieldInfo.FieldType;
                     

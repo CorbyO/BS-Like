@@ -18,7 +18,12 @@ MonoBehaviour:
   m_GUID: e78e83a4b5094dd49848eb1656d72c9b
   m_SerializeEntries:
   - m_GUID: 159aebd25f1364744a2cb4b20acadcd5
-    m_Address: Assets/Prefabs/Player.prefab
+    m_Address: Assets/Prefabs/Actors/APlayer.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 7ec9f03ed34e48b4e84f7d129f5d6d64
+    m_Address: Assets/Prefabs/Widgets/WJoystick.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - default

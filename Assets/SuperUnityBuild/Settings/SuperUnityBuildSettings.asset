@@ -1,0 +1,253 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5886119a5c7b34d8872ab527ca3e1b, type: 3}
+  m_Name: SuperUnityBuildSettings
+  m_EditorClassIdentifier: 
+  _basicSettings:
+    baseBuildFolder: Builds
+    buildPath: $VERSION/$RELEASE_TYPE/$PLATFORM/$ARCHITECTURE
+    openFolderPostBuild: 1
+  _productParameters:
+    buildCounter: 0
+    buildVersion: 
+    versionTemplate: 0.0.1.$BUILD
+    autoGenerate: 1
+    syncWithPlayerSettings: 0
+  _releaseTypeList:
+    releaseTypes:
+    - typeName: Dev
+      bundleIdentifier: com.corby.game-dev
+      companyName: corby
+      productName: game
+      buildOptions: 513
+      customDefines: CORBY_DEVELOPMENT
+      sceneList:
+        enabledScenes: []
+    - typeName: Release
+      bundleIdentifier: com.corby.game
+      companyName: corby
+      productName: game
+      buildOptions: 0
+      customDefines: CORBY_RELEASE
+      sceneList:
+        enabledScenes: []
+  _platformList:
+    platforms:
+    - {fileID: 7322709505548536433}
+    - {fileID: 8322339047818660321}
+  _projectConfigurations:
+    configSet:
+      _Buckets: ffffffffffffffff0600000009000000ffffffffffffffff0300000002000000ffffffff0100000005000000ffffffffffffffffffffffffffffffff07000000ffffffff
+      _HashCodes: c93903677b29e76bd971b97943f3a05037671a346b30e610ed64316d878a7279510e9f592d6dfd4800000000000000000000000000000000000000000000000000000000
+      _Next: ffffffffffffffff00000000ffffffffffffffffffffffffffffffff04000000ffffffff0800000000000000000000000000000000000000000000000000000000000000
+      _Count: 10
+      _Version: 10
+      _FreeList: -1
+      _FreeCount: 0
+      _Keys:
+      - Dev/Android/Android (All,ASTC,Gradle Project,APK,Single Binary,Auto,30)
+      - Dev/Android
+      - Dev/PC/Windows x64 (App)
+      - Dev/PC
+      - Dev
+      - Release/Android/Android (All,ASTC,Gradle Project,APK,Single Binary,Auto,30)
+      - Release/Android
+      - Release/PC/Windows x64 (App)
+      - Release/PC
+      - Release
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      - 
+      _Values:
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Dev/Android/Android (All,ASTC,Gradle Project,APK,Single Binary,Auto,30)
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Dev/PC/Windows x64 (App)
+      - enabled: 1
+        childKeys:
+        - Dev/Android
+        - Dev/PC
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Release/Android/Android (All,ASTC,Gradle Project,APK,Single Binary,Auto,30)
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys:
+        - Release/PC/Windows x64 (App)
+      - enabled: 1
+        childKeys:
+        - Release/Android
+        - Release/PC
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+      - enabled: 1
+        childKeys: []
+    showViewOptions: 0
+    showConfigs: 0
+    showBuildInfo: 0
+    hideDisabled: 0
+    treeView: 0
+    selectedKeyChain: 
+  _preBuildActions:
+    buildActions: []
+  _postBuildActions:
+    buildActions: []
+--- !u!114 &7322709505548536433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89df54eebccd0704dbbe96915fbb9a6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 13
+    name: Android
+    enabled: 1
+    binaryNameFormat: '{0}.apk'
+  variants:
+  - variantName: Device Type
+    selectedIndex: 4
+    values:
+    - ARMv7
+    - ARM64
+    - X86
+    - X86_64
+    - All
+  - variantName: Texture Compression
+    selectedIndex: 6
+    values:
+    - Generic
+    - DXT
+    - PVRTC
+    - ATC
+    - ETC
+    - ETC2
+    - ASTC
+  - variantName: Build Output
+    selectedIndex: 1
+    values:
+    - App
+    - Gradle Project
+  - variantName: Binary Type
+    selectedIndex: 0
+    values:
+    - APK
+    - Split APK
+    - AAB
+  - variantName: APK Expansion Type
+    selectedIndex: 0
+    values:
+    - Single Binary
+    - Split App Binary
+  - variantName: Min SDK Version
+    selectedIndex: 0
+    values:
+    - Auto
+    - 16
+    - 17
+    - 18
+    - 19
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+  - variantName: Target SDK Version
+    selectedIndex: 14
+    values:
+    - Auto
+    - 16
+    - 17
+    - 18
+    - 19
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+  platformName: Android
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 7
+--- !u!114 &8322339047818660321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2786f6b2301a94f4288672ff5305244c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 1
+  distributionList:
+    distributions: []
+  architectures:
+  - target: 5
+    name: Windows x86
+    enabled: 0
+    binaryNameFormat: '{0}.exe'
+  - target: 19
+    name: Windows x64
+    enabled: 1
+    binaryNameFormat: '{0}.exe'
+  variants:
+  - variantName: Build Output
+    selectedIndex: 0
+    values:
+    - App
+    - Visual Studio Solution
+  platformName: PC
+  dataDirNameFormat: '{0}_Data'
+  targetGroup: 1

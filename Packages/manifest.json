@@ -5,6 +5,7 @@
     "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git",
     "com.corby-o.good-project-view": "https://github.com/CorbyO/UnityGoodProjectView.git#master",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#master",
+    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git?path=Assets/NaughtyAttributes/#master",
     "com.github.superunitybuild.buildtool": "https://github.com/superunitybuild/buildtool.git#master",
     "com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git#master",
