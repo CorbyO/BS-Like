@@ -9,17 +9,10 @@ namespace Corby.Apps.Processors
     {
         [Instancing("Player")]
         private APlayer _player;
+        public ReadonlyTransform Player => _player.transform;
 
         public override bool IsDestroyWithScene => true;
-        public override void OnLevelChange()
-        {
-            
-        }
 
-        protected override void OnInstancing()
-        {
-        }
-        
         public void Input(Vector2 velocity)
         {
             _player.Move(velocity);

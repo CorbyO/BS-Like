@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724501425704761163}
   - component: {fileID: 724501425704761160}
-  - component: {fileID: 8805729167400628898}
-  - component: {fileID: 7116861508416780619}
-  - component: {fileID: 763457498443634649}
+  - component: {fileID: 5128577806797213746}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -76,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1459458051413904079, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,10 +82,10 @@ SpriteRenderer:
   m_Size: {x: 1.078125, y: 0.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &8805729167400628898
+--- !u!114 &5128577806797213746
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,55 +97,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6adaf793eb54c4e96adb214f84b08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprites:
-  - {fileID: 1459458051413904079, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: 359170815697947668, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: -8220729467712961139, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: 5872842931014740882, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: 6813737609034609192, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: 1252741959807183917, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
+  _sprites: []
   _fps: 10
-  _isLoop: 0
-  _isPlayOnAwake: 0
-  _frame: 2
---- !u!114 &7116861508416780619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724501425704761166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6adaf793eb54c4e96adb214f84b08af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprites:
-  - {fileID: -589479829849459968, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: -2225303593433192470, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: 711731054339644605, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: 8827041205860659437, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: -4531196692211296701, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: -1002207024202496282, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: -3633421932862571679, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  - {fileID: -7809123221476925388, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
-  _fps: 10
-  _isLoop: 0
-  _isPlayOnAwake: 0
+  _isLoop: 1
+  _isPlayOnAwake: 1
   _frame: 0
---- !u!114 &763457498443634649
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724501425704761166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12112bcd78944349813d26e4d47d2330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startPivot: 0
 --- !u!1 &724501426457890955
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,9 +111,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 724501426457890954}
-  - component: {fileID: 1947536115878592521}
   m_Layer: 0
-  m_Name: APlayer
+  m_Name: AMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,15 +134,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1947536115878592521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724501426457890955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e5b0d6cb1144707a45f44a3d14e5783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

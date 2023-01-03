@@ -17,8 +17,10 @@ namespace Corby.UI.Screens
         private WJoystick _joystick;
         public HdSGamePlay Handle { get; set; }
 
-        protected override void OnInstancing()
+        protected override async UniTask OnPostLoadedScript()
         {
+            await base.OnPostLoadedScript();
+            await WaitFor(_joystick);
             _joystick.OnControlled += vec => Handle.OnInputDirection?.Invoke(vec);
         }
     }

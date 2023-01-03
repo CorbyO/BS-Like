@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using Corby.Frameworks.Attributes;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace Corby.Frameworks
@@ -8,22 +9,25 @@ namespace Corby.Frameworks
     public abstract class BaseBehavior : MonoBehaviour
     {
         protected abstract void OnLoadedScript();
-        protected abstract void OnBound();
 
-        protected bool IsBound { get; set; }
+        protected virtual void OnBound() { }
+
+        protected virtual async UniTask OnPostLoadedScript() => await UniTask.CompletedTask;
+
+        private bool _isLoaded;
 
         private void Bind()
         {
             BindAttribute.Bind(this);
-            IsBound = true;
             OnBound();
         }
         
         private void Awake()
         {
-            IsBound = false;
+            _isLoaded = false;
             OnLoadedScript();
             Bind();
+            OnPostLoadedScript().ContinueWith(() => _isLoaded = true).Forget();
         }
         
         protected void Join(ref Action action, Action newAction)
@@ -59,6 +63,11 @@ namespace Corby.Frameworks
         protected void Error(string message)
         {
             Dbug.Error(GetType(), message, 2, name);
+        }
+
+        protected UniTask WaitFor(BaseBehavior behavior)
+        {
+            return UniTask.WaitUntil(() => behavior._isLoaded);
         }
     }
 }

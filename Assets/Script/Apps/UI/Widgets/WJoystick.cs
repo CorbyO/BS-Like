@@ -48,6 +48,8 @@ namespace Corby.UI.Widgets
         {
             _background.gameObject.SetActive(false);
             _isPressed = false;
+            _velocity = Vector2.zero;
+            OnControlled?.Invoke(_velocity);
         }
 
         public void OnPointerMove(PointerEventData eventData)

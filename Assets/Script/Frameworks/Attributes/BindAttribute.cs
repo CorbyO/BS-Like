@@ -181,20 +181,19 @@ namespace Corby.Frameworks.Attributes
 
         private static object AttachComponent(Transform transform, Type type, bool canAdd)
         {
-            if (type.IsSubclassOf(typeof(IList)))
+            if (type.IsArray)
             {
-                var coms = transform.GetComponents(type.GetGenericArguments()[0]);
-                if (coms is null or { Length: 0 }) Debug.Log($"[BindAttribute] \"{transform.name}\" add \"{type}\"");
-                return coms;
+                var eleType = type.GetElementType();
+                return transform.GetComponents(eleType);
             }
             var com = transform.GetComponent(type);
-            if(com == null)
+            if (com == null)
             {
-                if(!canAdd) return null;
+                if (!canAdd) return null;
                 com = transform.gameObject.AddComponent(type);
                 Debug.Log($"[BindAttribute] \"{transform.name}\" add \"{type}\"");
-                if(com == null) return null;
             }
+
             return com;
         }
 

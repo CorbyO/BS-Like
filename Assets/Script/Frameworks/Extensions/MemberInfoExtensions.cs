@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reflection;
+using Unity.VisualScripting.FullSerializer.Internal;
 
 namespace Corby.Frameworks.Extensions
 {
@@ -61,15 +62,42 @@ namespace Corby.Frameworks.Extensions
 
         public static void Set(this MemberInfo member, object owner, object value)
         {
-            switch(member.MemberType)
+            Action<object, object> SetValue;
+            Type memberType;
+            switch (member.MemberType)
             {
-                case MemberTypes.Field: (member as FieldInfo)?.SetValue(owner, value); break;
-                case MemberTypes.Property: (member as PropertyInfo)?.SetValue(owner, value); break;
+                case MemberTypes.Field:
+                {
+                    var i = (FieldInfo)member;
+                    SetValue = i.SetValue;
+                    memberType = i.FieldType;
+                    break;
+                }
+                case MemberTypes.Property:
+                {
+                    var i = (PropertyInfo)member;
+                    SetValue = i.SetValue;
+                    memberType = i.PropertyType;
+                    break;
+                }
                 default:
-                    throw new ArgumentException
-                    (
-                    "[MemberInfoExtension] Input MemberInfo must be if type FieldInfo, PropertyInfo"
-                    );
+                    throw new ArgumentException(
+                        "[MemberInfoExtension] Input MemberInfo must be if type FieldInfo, PropertyInfo");
+            }
+
+            if (memberType.IsArray)
+            {
+                var array = (Array)value;
+                var length = array.Length;
+                var @ref = (Array)memberType.GetDeclaredConstructor(new[]{ typeof(int) })
+                    .Invoke(new object[]{ length });
+                
+                Array.Copy(array, @ref, length);
+                SetValue(owner, @ref);
+            }
+            else
+            {
+                SetValue(owner, value);
             }
         }
 

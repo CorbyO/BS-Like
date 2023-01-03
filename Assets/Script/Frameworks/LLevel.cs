@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Corby.Frameworks.Attributes;
-using Corby.Frameworks.UI;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Cysharp.Threading.Tasks.UniTask;
 
 namespace Corby.Frameworks
 {
@@ -40,7 +38,7 @@ namespace Corby.Frameworks
         }
 
         protected abstract void AddProcessors();
-        
+
         protected void AddProcessor<T>(out T created) where T : PProcessor
         {
             var instance = _container.AddComponent<T>();

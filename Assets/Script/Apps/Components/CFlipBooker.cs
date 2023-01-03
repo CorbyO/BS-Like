@@ -29,7 +29,6 @@ namespace Script.Apps.Components
 
         public void Branch(int index, int targetIndex, Filter condition)
         {
-            Assert(IsBound, "Please Call it in OnBound().");
             Assert(index < _flipBooks.Length, "Index is out of range.");
             Assert(targetIndex < _flipBooks.Length, "TargetIndex is out of range.");
             
@@ -51,7 +50,6 @@ namespace Script.Apps.Components
 
         public void BranchOnStop(int index, int targetIndex)
         {
-            Assert(IsBound, "Please Call it in OnBound().");
             Assert(index < _flipBooks.Length, "Index is out of range.");
             Assert(targetIndex < _flipBooks.Length, "TargetIndex is out of range.");
             

@@ -12,27 +12,15 @@ namespace Corby.Frameworks.UI
         private Canvas _canvas;
         private List<WWidget> _widgetList;
 
-        private int _loadCount;
-        private int _loadCompletedCount;
-        
         protected override void OnLoadedScript()
         {
             _widgetList = new List<WWidget>(10);
-            _loadCount = 0;
-            _loadCompletedCount = 0;
         }
 
-        protected override void OnBound()
+        protected override async UniTask OnPostLoadedScript()
         {
-            Instancing().Forget();
-        }
-
-        private async UniTask Instancing()
-        {
+            await base.OnPostLoadedScript();
             await InstancingAttribute.Do(this, "Widgets", true);
-            OnInstancing();
         }
-        protected abstract void OnInstancing();
-        
     }
 }

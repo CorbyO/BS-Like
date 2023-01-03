@@ -2,7 +2,7 @@
 
 namespace Corby.Frameworks
 {
-    public class AActor : BaseBehavior
+    public abstract class AActor : BaseBehavior
     {
         private Transform _tempTransform;
         protected Vector2 Position

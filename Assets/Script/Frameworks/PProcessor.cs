@@ -7,27 +7,23 @@ namespace Corby.Frameworks
 {
     public abstract class PProcessor : BaseBehavior, IDisposable
     {
+        protected bool IsDisposed { get; private set; }
         public abstract bool IsDestroyWithScene { get; }
-        public abstract void OnLevelChange();
+        public virtual void OnLevelChange() {}
         protected override void OnLoadedScript()
         {
+            IsDisposed = false;
         }
 
-        protected override void OnBound()
+        protected override async UniTask OnPostLoadedScript()
         {
-            Instancing().Forget();
-        }
-        
-        private async UniTask Instancing()
-        {
+            await base.OnPostLoadedScript();
             await InstancingAttribute.Do(this, "Actors", false);
-            OnInstancing();
         }
-        protected abstract void OnInstancing();
 
         public void Dispose()
         {
-            
+            IsDisposed = true;
         }
     }
 }
