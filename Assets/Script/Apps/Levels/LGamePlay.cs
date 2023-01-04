@@ -13,13 +13,13 @@ namespace Corby.Apps.Level
         [DefineScreen]
         private SGamePlay _screen;
 
-        private PGameReady _gameReady;
+        private PGameMode _gameMode;
         private PPlayerController _playerController;
         private PCameraExtension _cameraExtension;
         
         protected override void AddProcessors()
         {
-            AddProcessor(out _gameReady);
+            AddProcessor(out _gameMode);
             AddProcessor(out _playerController);
             AddProcessor(out _cameraExtension);
 

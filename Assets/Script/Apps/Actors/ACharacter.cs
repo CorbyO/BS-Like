@@ -1,7 +1,5 @@
 ﻿using Corby.Frameworks;
 using Corby.Frameworks.Attributes;
-using Cysharp.Threading.Tasks;
-using Script.Apps.Components;
 using UnityEngine;
 
 namespace Corby.Apps.Actor

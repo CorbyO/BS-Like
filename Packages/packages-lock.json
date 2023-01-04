@@ -51,6 +51,13 @@
       "dependencies": {},
       "hash": "18fd7c1b9295d3afb802531824d3bfaa1b1ad885"
     },
+    "com.gwiazdorrr.betterstreamingassets": {
+      "version": "https://github.com/gwiazdorrr/BetterStreamingAssets.git#master",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "99c6458a5b4c09014e19df90e863744658cd51d7"
+    },
     "com.madsbangh.easybuttons": {
       "version": "https://github.com/madsbangh/EasyButtons.git#upm",
       "depth": 0,

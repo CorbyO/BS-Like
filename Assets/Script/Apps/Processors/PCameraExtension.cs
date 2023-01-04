@@ -45,15 +45,13 @@ namespace Corby.Apps.Processors
         private async UniTask CamUpdate()
         {
             await UniTask.Yield();
+            var position = _cameraTransform.position;
             while (!IsDisposed)
             {
-                var position = _cameraTransform.position;
                 var distance = _target.Position - position;
                 distance.z = 0;
-                
-                var speed = Speed * Time.deltaTime;
-                
-                position += distance * (speed);
+
+                position += Speed * Time.deltaTime * distance;
                 
                 _cameraTransform.position = position;
                 await UniTask.Yield();

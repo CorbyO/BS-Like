@@ -13,7 +13,7 @@ namespace Script.Apps.Components
         [SerializeField]
         private Sprite[] _sprites;
         [SerializeField]
-        private float _fps = 1;
+        private float _fps = 10;
         [SerializeField]
         private bool _isLoop;
         [SerializeField]
@@ -108,6 +108,15 @@ namespace Script.Apps.Components
             
             STOP:
             OnStop?.Invoke();
+        }
+        
+        public void SetSprites(Sprite[] sprites)
+        {
+            if (IsPlaying)
+            {
+                Stop();
+            }
+            _sprites = sprites;
         }
 
         #region IPlayer
