@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using Corby.Framework.Processors;
 using Corby.Option;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Corby.Framework
 {
-    public abstract class TableScriptableObject : ScriptableObject
+    public abstract class TableScriptableObject : SerializedScriptableObject
     {
     }
     
@@ -37,7 +38,7 @@ namespace Corby.Framework
             };
         }
         
-        [SerializeField] private SerializedDictionary<int, TRecord> _records;
+        [SerializeField] private Dictionary<int, TRecord> _records;
         
         public TRecord this[int index] => _records[index];
         

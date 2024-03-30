@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Threading;
 using Corby.Framework;
 using Cysharp.Threading.Tasks;
-using NaughtyAttributes;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Corby.Apps.Gameplay
@@ -10,13 +12,16 @@ namespace Corby.Apps.Gameplay
     public class FlipBook : BaseBehavior, IPlayer, IDisposable
     {
         private LazyComponent<SpriteRenderer> _spriteRenderer;
-        [SerializeField] [NaughtyAttributes.ReorderableList] private Sprite[] _sprites = Array.Empty<Sprite>();
+        [Title("Settings")]
+        [SerializeField] private Sprite[] _sprites = Array.Empty<Sprite>();
         [SerializeField] private float _fps = 10;
-        [NaughtyAttributes.ProgressBar("Frame", "MaxFrame")] [SerializeField] private int _frame;
+        [SerializeField] [ProgressBar("MinFrame", "MaxFrame")] [ReadOnly] private int _frame;
+        [Title("Options")]
         [SerializeField] private bool _isLoop;
         [SerializeField] private bool _isPlayOnAwake;
-        [ShowNativeProperty] public bool IsPlaying { get; private set; }
-        [ShowNativeProperty] public bool IsPaused { get; private set; }
+        [ShowInInspector] [ReadOnly] public bool IsPlaying { get; private set; }
+        [ShowInInspector] [ReadOnly] public bool IsPaused { get; private set; }
+        private int MinFrame => 0;
         public int MaxFrame => _sprites.Length - 1;
 
         public bool IsLoop
@@ -40,7 +45,7 @@ namespace Corby.Apps.Gameplay
 #region Preview (Editor Only)
 
 #if UNITY_EDITOR
-        private bool _isPreview;
+        private CancellationTokenSource _cts;
         
         [Button("Preview (Play/Stop)")]
         public void Preview()
@@ -50,28 +55,49 @@ namespace Corby.Apps.Gameplay
                 Debug.Log("Should have more than 1 sprite.");
             }
 
-            _isPreview = !_isPreview;
-            if (_isPreview)
+            foreach (var flipBook in GetComponents<FlipBook>())
             {
-                PlayPreview().Forget();
+                if (flipBook == this) continue;
+                flipBook._cts?.Cancel();
+                flipBook._cts?.Dispose();
+                flipBook._cts = null;
+            }
+
+            if (_cts == null)
+            {
+                Debug.Log("1");
+                _cts = new CancellationTokenSource();
+                PlayPreview(_cts.Token).Forget();
+            }
+            else
+            {
+                Debug.Log("2");
+                _cts.Cancel();
+                _cts.Dispose();
+                _cts = null;
             }
         }
         
-        private async UniTask PlayPreview()
+        private async UniTask PlayPreview(CancellationToken token)
         {
             var renderer = GetComponent<SpriteRenderer>();
             var original = renderer.sprite;
-
             _frame = 0;
-            while (_isPreview)
+            try
             {
-                _frame = (_frame + 1) % (MaxFrame + 1);
-                renderer.sprite = _sprites[_frame];
-                await UniTask.Delay(TimeSpan.FromSeconds(1f / _fps));
+                while (!token.IsCancellationRequested)
+                {
+                    _frame = (_frame + 1) % (MaxFrame + 1);
+                    renderer.sprite = _sprites[_frame];
+                    await UniTask.Delay(TimeSpan.FromSeconds(1f / _fps), cancellationToken: token);
+                }
             }
-
-            renderer.sprite = original;
-            _frame = 0;
+            catch (OperationCanceledException) { }
+            finally
+            {
+                renderer.sprite = original;
+                _frame = 0;
+            }
         }
 #endif
 

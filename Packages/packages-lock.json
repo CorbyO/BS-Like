@@ -7,15 +7,6 @@
       "dependencies": {},
       "hash": "11d9b5a2cd9fd7f5c0def047aee8a60b77ee62ab"
     },
-    "com.browar.editor-toolbox": {
-      "version": "https://github.com/arimger/Unity-Editor-Toolbox.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.editorcoroutines": "1.0.0"
-      },
-      "hash": "29cfb4057463427db71a7e704bfa8d19a317eb1b"
-    },
     "com.corby-o.good-project-view": {
       "version": "https://github.com/CorbyO/UnityGoodProjectView.git#master",
       "depth": 0,
@@ -38,13 +29,6 @@
       "source": "git",
       "dependencies": {},
       "hash": "d057074f177b078e29f10dd511b54df48a8806ea"
-    },
-    "com.dbrizov.naughtyattributes": {
-      "version": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "8a8fa5a9659a6d63f196391c71e06c4286c8acd7"
     },
     "com.github.superunitybuild.buildtool": {
       "version": "7.0.0",

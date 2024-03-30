@@ -1,11 +1,9 @@
 {
   "dependencies": {
     "com.aarquiesolutions.hierarchy": "https://github.com/Aarquie-Solutions/Hierarchy.git#master",
-    "com.browar.editor-toolbox": "https://github.com/arimger/Unity-Editor-Toolbox.git#upm",
     "com.corby-o.good-project-view": "https://github.com/CorbyO/UnityGoodProjectView.git#master",
     "com.corby.option": "https://github.com/CorbyO/Option.git",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#master",
-    "com.dbrizov.naughtyattributes": "https://github.com/dbrizov/NaughtyAttributes.git#upm",
     "com.github.superunitybuild.buildtool": "7.0.0",
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git#master",
     "com.tayx.graphy": "https://github.com/Tayx94/graphy.git#master",
