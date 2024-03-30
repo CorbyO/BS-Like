@@ -10,7 +10,7 @@ namespace Corby.Apps.Gameplay
     public class FlipBook : BaseBehavior, IPlayer, IDisposable
     {
         private LazyComponent<SpriteRenderer> _spriteRenderer;
-        [SerializeField] private Sprite[] _sprites;
+        [SerializeField] [NaughtyAttributes.ReorderableList] private Sprite[] _sprites = Array.Empty<Sprite>();
         [SerializeField] private float _fps = 10;
         [NaughtyAttributes.ProgressBar("Frame", "MaxFrame")] [SerializeField] private int _frame;
         [SerializeField] private bool _isLoop;
