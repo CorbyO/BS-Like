@@ -47,11 +47,11 @@
       "hash": "8a8fa5a9659a6d63f196391c71e06c4286c8acd7"
     },
     "com.github.superunitybuild.buildtool": {
-      "version": "https://github.com/superunitybuild/buildtool.git#master",
+      "version": "7.0.0",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {},
-      "hash": "e6eab4ce37bccb267543e990abb474ef7a11c59d"
+      "url": "https://package.openupm.com"
     },
     "com.nobi.roundedcorners": {
       "version": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git#master",
