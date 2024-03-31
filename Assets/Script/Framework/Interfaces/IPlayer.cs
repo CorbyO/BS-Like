@@ -7,7 +7,7 @@ namespace Corby.Framework
         bool IsPlaying { get; }
         bool IsPaused { get; }
         bool IsLoop { get; }
-        bool IsPlayOnAwake { get; }
+        bool IsPlayOnStart { get; }
         event Action OnPlay;
         event Action OnStop;
         event Action<bool> OnPause;

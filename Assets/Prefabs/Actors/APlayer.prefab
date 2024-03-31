@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6813737609034609192, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
+  m_Sprite: {fileID: 1459458051413904079, guid: 3accdbde4e56f5c4e9cfa311b8cef55f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   _fps: 10
   _frame: 0
   _isLoop: 1
-  _isPlayOnAwake: 0
+  _isPlayOnStart: 1
 --- !u!114 &7116861508416780619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   _fps: 10
   _frame: 0
   _isLoop: 1
-  _isPlayOnAwake: 1
+  _isPlayOnStart: 0
 --- !u!114 &763457498443634649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   _flipBooks:
   - {fileID: 8805729167400628898}
   - {fileID: 7116861508416780619}
-  _startPivot: 1
+  _startPivot: 0
 --- !u!1 &724501426457890955
 GameObject:
   m_ObjectHideFlags: 0

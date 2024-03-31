@@ -28,10 +28,10 @@ namespace Corby.Apps.Gameplay
         {
             foreach (var flipBook in _flipBooks)
             {
-                flipBook.IsPlayOnAwake = false;
+                flipBook.IsPlayOnStart = false;
             }
             
-            _flipBooks[_startPivot].IsPlayOnAwake = true;
+            _flipBooks[_startPivot].IsPlayOnStart = true;
         }
 
         public void Pause()
