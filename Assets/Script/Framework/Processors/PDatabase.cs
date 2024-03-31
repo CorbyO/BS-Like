@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Corby.Option;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Corby.Framework.Processors
@@ -7,6 +8,7 @@ namespace Corby.Framework.Processors
     public class PDatabase : PPersistentProcessor<PDatabase>
     {
         [SerializeField]
+        [AssetList(AutoPopulate = true, Path = "ScriptableObjects/Tables")]
         private List<TableScriptableObject> _tables = new();
         
         private readonly Dictionary<string, TableScriptableObject> _tableMap = new();
