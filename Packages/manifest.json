@@ -3,7 +3,9 @@
     "com.aarquiesolutions.hierarchy": "https://github.com/Aarquie-Solutions/Hierarchy.git#master",
     "com.corby-o.good-project-view": "https://github.com/CorbyO/UnityGoodProjectView.git#master",
     "com.corby.option": "https://github.com/CorbyO/Option.git",
+    "com.cysharp.r3": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
     "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#master",
+    "com.github-glitchenzo.nugetforunity": "4.0.2",
     "com.github.superunitybuild.buildtool": "7.0.0",
     "com.nobi.roundedcorners": "https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git#master",
     "com.tayx.graphy": "https://github.com/Tayx94/graphy.git#master",
@@ -61,6 +63,7 @@
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
+        "com.github-glitchenzo.nugetforunity",
         "com.github.superunitybuild.buildtool"
       ]
     }

@@ -23,12 +23,28 @@
       "dependencies": {},
       "hash": "a113599db94f776460b3f1409625d00e8a29b1c9"
     },
+    "com.cysharp.r3": {
+      "version": "https://github.com/Cysharp/R3.git?path=src/R3.Unity/Assets/R3.Unity",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.modules.imgui": "1.0.0"
+      },
+      "hash": "a8d433d240cecfd9356319ea1315f0e9a956ac77"
+    },
     "com.cysharp.unitask": {
       "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask/#master",
       "depth": 0,
       "source": "git",
       "dependencies": {},
       "hash": "d057074f177b078e29f10dd511b54df48a8806ea"
+    },
+    "com.github-glitchenzo.nugetforunity": {
+      "version": "4.0.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
     },
     "com.github.superunitybuild.buildtool": {
       "version": "7.0.0",
