@@ -10,7 +10,7 @@ namespace Corby.Framework
     public class LazyComponent<T> 
         where T : Component
     {
-        private GameObject _owner;
+        private readonly GameObject _owner;
         private T _component;
         
         public LazyComponent(GameObject owner)
