@@ -1,9 +1,9 @@
 using Cysharp.Threading.Tasks;
-using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace Corby.Framework
 {
-    public abstract class BaseBehavior : MonoBehaviour
+    public abstract class BaseBehavior : SerializedMonoBehaviour
     {
         /// <summary>
         /// <see cref="Awake"/> 될때 호출되는 메서드
